@@ -32,7 +32,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 z-100 bg-transparent bg-slate-950 text-gray-400 ${
         isScrolled
           ? "glassmorphism py-2"
           : "bg-transparent py-4"
@@ -56,7 +56,7 @@ export default function Navbar() {
               <Link 
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                className="text-gray-500 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
               >
                 <motion.span
                   whileHover={{ y: -2 }}
@@ -71,7 +71,7 @@ export default function Navbar() {
             
           </nav>
             <ThemeSwitch theme="light" toggleTheme={() => console.log("Toggle theme")} />
-          <ThemeSwitch theme="dark" toggleTheme={() => console.log("Toggle theme")} />
+          {/* <ThemeSwitch theme="dark" toggleTheme={() => console.log("Toggle theme")} /> */}
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
