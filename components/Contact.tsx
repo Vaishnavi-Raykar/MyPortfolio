@@ -100,7 +100,7 @@ const Contact = () => {
                     href="https://linkedin.com/in/vaishnaviraykar"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-[#0077B5]/20 backdrop-blur-lg p-4 rounded-xl flex items-center justify-center gap-3 text-white hover:bg-[#0077B5]/30 transition-all"
+                    className="bg-gray-800/20 backdrop-blur-lg p-4 rounded-xl flex items-center justify-center gap-3 text-white hover:bg-gray-800/30 transition-all"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
