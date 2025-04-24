@@ -119,7 +119,8 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
 
  const Experience = () => {
   return (
-    <section id="experience" className="py-16 sm:py-24 md:py-32 bg-gray-950 relative min-h-screen"> {/* Adjusted padding */}
+    // Added pt-24 to push content below the fixed navbar
+    <section id="experience" className="pt-24 py-16 sm:py-24 md:py-32 bg-gray-950 relative min-h-screen">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,40,45,0.5),rgba(10,10,15,0.9))] z-0"></div>
 

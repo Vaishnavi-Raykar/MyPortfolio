@@ -306,9 +306,10 @@ const Skills = () => {
   const activeSkill = activeItemData?.type === 'skill' ? activeItemData.skill : null;
 
    return (
+    // Added pt-24 to push content below the fixed navbar
     <section
       id="skills"
-      className="py-16 sm:py-20 md:py-28 min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-950 via-black to-indigo-900/80 relative overflow-hidden" // Adjusted padding
+      className="pt-24 py-16 sm:py-20 md:py-28 min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-950 via-black to-indigo-900/80 relative overflow-hidden"
     >
       {/* Background elements */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">

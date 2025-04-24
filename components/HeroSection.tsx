@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, MeshDistortMaterial } from '@react-three/drei';
 import { TypeAnimation } from 'react-type-animation';
-import React from 'react'; // Keep React import
+import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 
 // Define props type including the navigation callback
 interface HeroSectionProps {
@@ -22,6 +22,30 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
     onNavigate('down');
   };
 
+  // State for responsive sphere scale
+  const [sphereScale, setSphereScale] = useState(2.4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Use a common breakpoint (e.g., 768px for md)
+      if (window.innerWidth < 768) {
+        setSphereScale(1.5); // Smaller scale for mobile
+      } else {
+        setSphereScale(2.4); // Default scale for larger screens
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty dependency array ensures this runs only on mount and unmount
+
+
   return (
     // Add w-full h-full here to ensure it fills its motion container
     <section
@@ -34,7 +58,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
           <ambientLight intensity={1.2} />
           <directionalLight position={[3, 2, 1]} intensity={0.8} />
-          <Sphere args={[1, 100, 200]} scale={2.4}>
+          {/* Use state variable for scale */}
+          <Sphere args={[1, 100, 200]} scale={sphereScale}>
             <MeshDistortMaterial
               color="#60a5fa"
               attach="material"
@@ -46,8 +71,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
         </Canvas>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4">
+      {/* Content - Increased horizontal padding on mobile (px-8), revert to px-4 on sm+ */}
+      <div className="relative z-10 text-center px-8 sm:px-4">
         <motion.div
           // Removed initial/animate/transition here - parent motion.div handles entrance
           className="space-y-6"
@@ -74,7 +99,8 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" // Adjusted text sizes
+             // Reduced max-width on mobile (max-w-sm), kept larger max-width for sm+
+            className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-sm sm:max-w-2xl mx-auto leading-relaxed"
           >
             Crafting beautiful and functional web experiences with modern technologies
           </motion.p>

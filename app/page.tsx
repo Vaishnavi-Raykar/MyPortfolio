@@ -148,12 +148,12 @@ const sectionVariants = {
     }
 
 
-     // Adjusted positioning with responsive offsets
+     // Adjusted positioning with responsive offsets (less horizontal offset on mobile)
      const positionClasses = {
       up:    'top-8 md:top-10 left-1/2 -translate-x-1/2',
       down:  'bottom-8 md:bottom-10 left-1/2 -translate-x-1/2',
-      left:  'left-8 md:left-10 top-1/2 -translate-y-1/2',
-      right: 'right-8 md:right-10 top-1/2 -translate-y-1/2',
+      left:  'left-4 md:left-10 top-1/2 -translate-y-1/2', // Reduced left offset for mobile
+      right: 'right-4 md:right-10 top-1/2 -translate-y-1/2', // Reduced right offset for mobile
     }[direction];
 
      // Defines the layout flow (icon vs text)
@@ -170,8 +170,8 @@ const sectionVariants = {
         key={`${direction}-${targetSectionId}`} // More specific key
          onClick={() => navigateTo(targetSectionId)}
         aria-label={`Navigate ${direction} to ${targetSectionInfo.name}`}
-        // Combined alignment and positioning classes, increased z-index
-        className={`fixed ${positionClasses} z-[60] p-2 group flex ${alignmentClasses} gap-1 text-white transition-all duration-300 ease-in-out hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg`}
+        // Combined alignment and positioning classes, increased z-index. Removed padding on mobile (p-0), added back on md (md:p-2)
+        className={`fixed ${positionClasses} z-[60] p-0 md:p-2 group flex ${alignmentClasses} gap-1 text-white transition-all duration-300 ease-in-out hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 rounded-lg`}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         initial={{ opacity: 0, scale: 0.8 }}
@@ -184,8 +184,8 @@ const sectionVariants = {
             <ArrowIcon className="w-4 h-4 md:w-5 md:h-5" />
         </div>
 
-        {/* Text Label for Destination */}
-        <span className={`text-xs md:text-sm font-medium tracking-wide whitespace-nowrap opacity-80 group-hover:opacity-100 transition-opacity ${textMarginClass}`}>
+        {/* Text Label for Destination - Hidden on mobile, shown on md+ */}
+        <span className={`hidden md:inline text-xs md:text-sm font-medium tracking-wide whitespace-nowrap opacity-80 group-hover:opacity-100 transition-opacity ${textMarginClass}`}>
           {targetSectionInfo.name}
         </span>
 

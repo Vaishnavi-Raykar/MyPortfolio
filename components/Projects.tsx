@@ -187,7 +187,8 @@ const Projects = () => {
    });
 
   return (
-    <section id="projects" className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-gray-900 to-gray-950 min-h-screen overflow-hidden"> {/* Adjusted padding */}
+    // Added pt-24 to push content below the fixed navbar
+    <section id="projects" className="pt-24 py-16 sm:py-20 md:py-28 bg-gradient-to-b from-gray-900 to-gray-950 min-h-screen overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.h2
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 md:mb-20 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400" // Adjusted text size & margin

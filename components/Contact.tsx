@@ -37,7 +37,8 @@ const Contact = () => {
   };
   
  return (
-    <section id="contact" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black py-16 sm:py-20"> {/* Adjusted padding */}
+    // Added pt-24 to push content below the fixed navbar
+    <section id="contact" className="pt-24 min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black py-16 sm:py-20">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
