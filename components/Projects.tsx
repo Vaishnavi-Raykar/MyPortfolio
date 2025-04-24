@@ -128,10 +128,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
         >
           {/* Top Section: Title and Description */}
           <div className="text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: project.color }}>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2" style={{ color: project.color }}> {/* Adjusted text size */}
               {project.title}
             </h3>
-            <p className="text-sm md:text-base text-gray-200 mb-3 line-clamp-3"> {/* Limit description lines */}
+            <p className="text-sm sm:text-base text-gray-200 mb-3 line-clamp-2 sm:line-clamp-3"> {/* Adjusted text size & line-clamp */}
               {project.description}
             </p>
           </div>
@@ -143,7 +143,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               {project.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="px-2.5 py-1 rounded-full text-xs font-medium"
+                  className="px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium" // Adjusted text size
                   style={{ backgroundColor: hexToRgba(project.color, 0.2), color: project.color }} // Use project color theme
                 >
                   {tech}
@@ -157,19 +157,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-md bg-white text-gray-900 font-semibold text-sm hover:bg-gray-200 transition-colors duration-200 shadow-sm"
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-md bg-white text-gray-900 font-semibold text-xs sm:text-sm hover:bg-gray-200 transition-colors duration-200 shadow-sm" // Adjusted padding & text size
                 aria-label={`Live Demo of ${project.title}`}
               >
-                <FiExternalLink /> Live Demo
+                <FiExternalLink className="w-3 h-3 sm:w-4 sm:h-4" /> Live Demo {/* Adjusted icon size */}
               </Link>
               <Link
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-md bg-black/50 text-white font-semibold text-sm hover:bg-black/70 border border-white/30 transition-colors duration-200 shadow-sm"
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-md bg-black/50 text-white font-semibold text-xs sm:text-sm hover:bg-black/70 border border-white/30 transition-colors duration-200 shadow-sm" // Adjusted padding & text size
                 aria-label={`GitHub Repository for ${project.title}`}
               >
-                <FiGithub /> GitHub
+                <FiGithub className="w-3 h-3 sm:w-4 sm:h-4" /> GitHub {/* Adjusted icon size */}
               </Link>
             </div>
           </div>
@@ -184,13 +184,13 @@ const Projects = () => {
   const { ref, inView } = useInView({
     triggerOnce: false, // Keep false to re-animate if scrolled out and back in? Or true for once.
     threshold: 0.1, // Trigger when 10% of the section is visible
-  });
+   });
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-gradient-to-b from-gray-900 to-gray-950 min-h-screen overflow-hidden">
+    <section id="projects" className="py-16 sm:py-20 md:py-28 bg-gradient-to-b from-gray-900 to-gray-950 min-h-screen overflow-hidden"> {/* Adjusted padding */}
       <div className="container mx-auto px-4">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-20 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 md:mb-20 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400" // Adjusted text size & margin
           initial={{ opacity: 0, y: -30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -199,9 +199,9 @@ const Projects = () => {
         </motion.h2>
 
         {/* Grid Container */}
-        <motion.div
+         <motion.div
           ref={ref} // Attach ref here to detect when the grid comes into view
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10" // Adjusted gap
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           // Stagger children animation - removed as handled by whileInView on card

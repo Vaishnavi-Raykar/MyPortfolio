@@ -173,7 +173,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
              initial={{ opacity: 0, y: 20 }} // Keep inner animations for elements
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.3 }}
-             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 drop-shadow-[0_0_20px_rgba(99,102,241,0.4)]"
+             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 drop-shadow-[0_0_20px_rgba(99,102,241,0.4)]" // Adjusted text sizes
           >
             <TypeAnimation
               sequence={[
@@ -191,7 +191,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" // Adjusted text sizes
           >
             Crafting beautiful and functional web experiences with modern technologies
           </motion.p>
@@ -202,7 +202,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           >
             <button
                 onClick={handleViewWorkClick} // Use updated handler
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-medium shadow-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-black"
+                className="px-6 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-medium shadow-lg hover:brightness-110 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-black" // Adjusted padding
             >
               View My Work {/* This will now navigate down */}
             </button>

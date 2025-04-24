@@ -169,10 +169,10 @@ const SortableSkillItem = React.forwardRef<HTMLDivElement, SortableSkillItemProp
             rotateX: -4,
         } : {}}
         transition={{ type: 'spring', stiffness: 350, damping: 15 }}
-         // Apply shake animation if it's the overlay over an incorrect target
+     // Apply shake animation if it's the overlay over an incorrect target
          animate={isOverlay ? overlayMotionProps : {}}
       >
-        {skill.name}
+        <span className="text-xs sm:text-sm">{skill.name}</span> {/* Adjusted text size */}
       </motion.div>
     );
   }
@@ -195,9 +195,9 @@ const SkillCategoryContainer: React.FC<SkillCategoryContainerProps> = ({ categor
 
   const skillIds = category.skills.map(skill => `${category.title}-${skill.name}`);
 
-  // Dynamic classes for drop target feedback
+   // Dynamic classes for drop target feedback
   const containerClasses = `
-    p-5 md:p-6 rounded-xl shadow-lg flex flex-col space-y-4
+    p-4 sm:p-5 md:p-6 rounded-xl shadow-lg flex flex-col space-y-4
     transition-all duration-300 ease-in-out relative overflow-hidden
     border border-white/10
     bg-white/5 backdrop-blur-lg hover:bg-white/10
@@ -216,7 +216,7 @@ const SkillCategoryContainer: React.FC<SkillCategoryContainerProps> = ({ categor
         {/* Optional: Subtle pattern or glow effect inside */}
        <div className="absolute inset-0 opacity-5 -z-10" style={{backgroundImage: 'radial-gradient(#fff 0.5px, transparent 0.5px)', backgroundSize: '10px 10px'}}></div>
 
-      <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 mb-4 border-b border-gray-600/50 pb-3">
+      <h3 className="text-lg sm:text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 mb-4 border-b border-gray-600/50 pb-3"> {/* Adjusted text size */}
         {category.title}
       </h3>
       {/* Context for sortable skills */}
@@ -305,10 +305,10 @@ const Skills = () => {
   // Find the active skill for the DragOverlay
   const activeSkill = activeItemData?.type === 'skill' ? activeItemData.skill : null;
 
-  return (
+   return (
     <section
       id="skills"
-      className="py-20 md:py-28 min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-950 via-black to-indigo-900/80 relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-28 min-h-screen flex flex-col justify-center bg-gradient-to-br from-gray-950 via-black to-indigo-900/80 relative overflow-hidden" // Adjusted padding
     >
       {/* Background elements */}
       <div aria-hidden="true" className="absolute inset-0 -z-10 overflow-hidden">
@@ -318,9 +318,9 @@ const Skills = () => {
          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+     <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-20 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-indigo-300"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 md:mb-20 text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-indigo-300" // Adjusted text size & margin
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -333,9 +333,9 @@ const Skills = () => {
           collisionDetection={closestCenter}
           onDragStart={handleDragStart}
           onDragOver={handleDragOver} // Track hovering
-          onDragEnd={handleDragEnd}
+           onDragEnd={handleDragEnd}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"> {/* Adjusted gap */}
             {skillsData.map((category) => (
                <SkillCategoryContainer
                     key={category.title}

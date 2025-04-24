@@ -69,15 +69,15 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
         className="p-6 md:p-8 rounded-2xl shadow-xl bg-gray-900/80 border border-gray-700/50 backdrop-blur-lg"
         style={{
           boxShadow: `0 15px 60px -15px ${experience.color}30`
-        }}
+       }}
       >
         <div className="flex flex-col sm:flex-row items-start justify-between mb-4 md:mb-6 gap-2">
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{experience.role}</h3>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">{experience.role}</h3> {/* Adjusted text size */}
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span className="text-lg md:text-xl text-gray-300">{experience.company}</span>
+              <span className="text-base sm:text-lg md:text-xl text-gray-300">{experience.company}</span> {/* Adjusted text size */}
               <span className="hidden sm:inline h-1 w-1 rounded-full bg-gray-500"></span>
-              <span className="text-sm md:text-base text-gray-400">{experience.period}</span>
+              <span className="text-xs sm:text-sm md:text-base text-gray-400">{experience.period}</span> {/* Adjusted text size */}
             </div>
           </div>
         </div>
@@ -86,16 +86,16 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
           {experience.description.map((item, idx) => (
             <div key={idx} className="flex items-start gap-3">
               <div className="w-1.5 h-1.5 rounded-full mt-[7px]" style={{backgroundColor: experience.color}}></div>
-              <p className="text-gray-300 text-sm md:text-base">{item}</p>
+              <p className="text-gray-300 text-sm sm:text-base">{item}</p> {/* Adjusted text size */}
             </div>
           ))}
         </div>
 
         <div className="flex flex-wrap gap-2 mt-4 md:mt-6">
-          {experience.skills.map((skill, idx) => (
+           {experience.skills.map((skill, idx) => (
             <span
               key={idx}
-              className="px-3 py-1 rounded-full text-xs md:text-sm font-medium"
+              className="px-3 py-1 rounded-full text-xs sm:text-sm font-medium" // Adjusted text size
               style={{
                 backgroundColor: `${experience.color}20`,
                 color: experience.color,
@@ -117,25 +117,25 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
   );
 };
 
-const Experience = () => {
+ const Experience = () => {
   return (
-    <section id="experience" className="py-24 md:py-32 bg-gray-950 relative min-h-screen">
+    <section id="experience" className="py-16 sm:py-24 md:py-32 bg-gray-950 relative min-h-screen"> {/* Adjusted padding */}
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,40,45,0.5),rgba(10,10,15,0.9))] z-0"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+     <div className="container mx-auto px-4 relative z-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-20 text-white"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 md:mb-20 text-white" // Adjusted text size and margin
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           Professional Experience
-        </motion.h2>
+       </motion.h2>
 
         {/* Cards Container - Static positioning instead of animation-based positioning */}
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-16"> {/* Adjusted spacing */}
           {experiences.map((experience) => (
             <ExperienceCard key={experience.id} experience={experience} />
           ))}

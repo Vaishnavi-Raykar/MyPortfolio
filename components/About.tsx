@@ -5,11 +5,11 @@ const About: React.FC = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="py-16 bg-gradient-to-br from-gray-900 to-black text-white"
+      className="py-12 sm:py-16 bg-gradient-to-br from-gray-900 to-black text-white" // Adjusted padding
     >
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16"> {/* Added sm padding */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side: Image or 3D element */}
           <div className="relative rounded-lg overflow-hidden shadow-lg">
@@ -27,20 +27,20 @@ const About: React.FC = () => {
 
           {/* Right side: Text content */}
           <div>
-            <h2 className="text-3xl font-bold mb-6 text-indigo-400">About Me</h2>
-            <p className="text-lg text-gray-300 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-indigo-400">About Me</h2> {/* Adjusted text size & margin */}
+            <p className="text-base sm:text-lg text-gray-300 mb-4"> {/* Adjusted text size */}
               👋 Hi, I'm **Your Name**, a passionate Full Stack Developer with [Number] years of experience in crafting beautiful and functional web applications. I specialize in using modern technologies like **TypeScript**, **React**, and **Next.js** to build scalable and user-friendly solutions.
             </p>
-            <p className="text-lg text-gray-300 mb-4">
+            <p className="text-base sm:text-lg text-gray-300 mb-4"> {/* Adjusted text size */}
               I'm driven by a desire to create innovative and impactful digital experiences. My expertise lies in [mention 2-3 key skills or areas of focus, e.g., front-end development with React, back-end development with Node.js, and building RESTful APIs]. I'm also keen on exploring the possibilities of 3D in web interfaces to create more engaging user experiences.
             </p>
-            <p className="text-lg text-gray-300 mb-4">
+            <p className="text-base sm:text-lg text-gray-300 mb-4"> {/* Adjusted text size */}
               In my free time, I enjoy [mention a hobby or interest]. I'm always eager to learn new technologies and collaborate on exciting projects.
             </p>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+             whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 px-6 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+              className="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 text-sm sm:text-base rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2" // Adjusted padding & text size
             >
               View My Projects
             </motion.button>
