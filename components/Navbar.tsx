@@ -88,11 +88,8 @@ export default function Navbar({ activeSection, setActiveSection }: NavbarProps)
       variants={navVariants}
       initial="hidden"
       animate="visible"
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all bg-slate-950 duration-300 ease-in-out ${
-        isScrolled || isMobileMenuOpen
-          ? "bg-black/70 backdrop-blur-lg shadow-lg border-b border-white/10 py-3"
-          : "bg-transparent py-5"
-      }`}
+      // Apply a consistent background with blur and shadow, remove conditional logic for bg/padding
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-black/70 backdrop-blur-lg shadow-lg border-b border-white/10 py-3"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-12">
