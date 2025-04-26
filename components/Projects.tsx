@@ -13,7 +13,6 @@ type Project = {
   technologies: string[];
   imageUrl: string;
   liveUrl: string;
-  githubUrl: string;
   color: string; // Main accent color for the card
 };
 
@@ -26,7 +25,6 @@ const projects: Project[] = [
     technologies: ['ReactJs', 'NodeJs', 'ExpressJs', 'MongoDB', 'Cloudinary', 'GEMINI API'],
     imageUrl: '/projects/quickmed.png', // Ensure these paths are correct in your public folder
     liveUrl: 'https://quickmed-patient.vercel.app/',
-    githubUrl: 'https://github.com/Vaishnavi-Raykar/Quickmed-New',
     color: '#6D28D9', // Purple
   },
   {
@@ -36,7 +34,6 @@ const projects: Project[] = [
     technologies: ['Gemini API', 'ReactJs', 'NodeJs', 'AI-Powered IDE'],
     imageUrl: '/projects/gencodex.png',
     liveUrl: 'https://gencodex.vercel.app/',
-    githubUrl: 'https://github.com/sanketshinde3001/Generative-AI',
     color: '#EC4899', // Pink
   },
   {
@@ -46,7 +43,6 @@ const projects: Project[] = [
     technologies: ['TypeScript', 'CSS', 'Tolgee'],
     imageUrl: '/projects/flag-quiz.png',
     liveUrl: 'https://flag-quiz-phi.vercel.app/fr-FR',
-    githubUrl: 'https://github.com/Vaishnavi-Raykar/Flag-Quiz',
     color: '#06B6D4', // Cyan
   },
   // --- NEW SAMPLE PROJECTS ---
@@ -57,7 +53,6 @@ const projects: Project[] = [
     technologies: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'WebRTC'],
     imageUrl: '/projects/interviewAce.png', // Use a generic placeholder image path
     liveUrl: 'https://interview-ace-rose.vercel.app/',
-    githubUrl: 'https://github.com/sanketshinde3001/Nirmaan-3.0',
     color: '#F59E0B', // Amber
   },
   {
@@ -67,7 +62,6 @@ const projects: Project[] = [
     technologies: ['React', 'TypeScript', 'JavaScript', 'CSS'],
     imageUrl: '/projects/phrasebook.png',
     liveUrl: 'https://multilingual-phrasebook.vercel.app/hi',
-    githubUrl: 'https://github.com/Vaishnavi-Raykar/Multilingual-Phrasebook',
     color: '#10B981', // Emerald
   },
   {
@@ -77,7 +71,6 @@ const projects: Project[] = [
     technologies: ['Next.js', 'Node.js', 'MondoDB','ShadCN', 'TailwindCSS'],
     imageUrl: '/projects/alumni.png',
     liveUrl: 'https://alum-bond.vercel.app/',
-    githubUrl: 'https://github.com/prathamesh424/AlumniAssciation',
     color: '#3B82F6', // Blue
   }
 ];
@@ -192,15 +185,6 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 aria-label={`Live Demo of ${project.title}`}
               >
                 <FiExternalLink className="w-3 h-3 sm:w-4 sm:h-4" /> Live Demo {/* Adjusted icon size */}
-              </Link>
-              <Link
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-md bg-black/50 text-white font-semibold text-xs sm:text-sm hover:bg-black/70 border border-white/30 transition-colors duration-200 shadow-sm" // Adjusted padding & text size
-                aria-label={`GitHub Repository for ${project.title}`}
-              >
-                <FiGithub className="w-3 h-3 sm:w-4 sm:h-4" /> GitHub {/* Adjusted icon size */}
               </Link>
             </div>
           </div>
