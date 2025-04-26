@@ -25,8 +25,8 @@ const projects: Project[] = [
     description: 'A healthcare platform featuring doctor recommendations, digital prescriptions, medical report analysis, and patient dashboards.',
     technologies: ['ReactJs', 'NodeJs', 'ExpressJs', 'MongoDB', 'Cloudinary', 'GEMINI API'],
     imageUrl: '/projects/quickmed.png', // Ensure these paths are correct in your public folder
-    liveUrl: 'https://quickmed-eta.vercel.app/',
-    githubUrl: 'https://github.com/Vaishnavi-Raykar/quickmed',
+    liveUrl: 'https://quickmed-patient.vercel.app/',
+    githubUrl: 'https://github.com/Vaishnavi-Raykar/Quickmed-New',
     color: '#6D28D9', // Purple
   },
   {
@@ -35,8 +35,8 @@ const projects: Project[] = [
     description: 'An online IDE with integrated AI features, supporting web development and C++. Includes code explanation, optimization, and UI redesign.',
     technologies: ['Gemini API', 'ReactJs', 'NodeJs', 'AI-Powered IDE'],
     imageUrl: '/projects/gencodex.png',
-    liveUrl: 'https://gencodexplus.vercel.app/',
-    githubUrl: 'https://github.com/Vaishnavi-Raykar/GenCodex',
+    liveUrl: 'https://gencodex.vercel.app/',
+    githubUrl: 'https://github.com/sanketshinde3001/Generative-AI',
     color: '#EC4899', // Pink
   },
   {
@@ -46,7 +46,7 @@ const projects: Project[] = [
     technologies: ['TypeScript', 'CSS', 'Tolgee'],
     imageUrl: '/projects/flag-quiz.png',
     liveUrl: 'https://flag-quiz-phi.vercel.app/fr-FR',
-    githubUrl: 'https://github.com/Vaishnavi-Raykar/FlagQuiz',
+    githubUrl: 'https://github.com/Vaishnavi-Raykar/Flag-Quiz',
     color: '#06B6D4', // Cyan
   },
   // --- NEW SAMPLE PROJECTS ---
