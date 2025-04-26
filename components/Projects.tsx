@@ -48,6 +48,37 @@ const projects: Project[] = [
     liveUrl: 'https://flag-quiz-phi.vercel.app/fr-FR',
     githubUrl: 'https://github.com/Vaishnavi-Raykar/FlagQuiz',
     color: '#06B6D4', // Cyan
+  },
+  // --- NEW SAMPLE PROJECTS ---
+  {
+    id: 'interviewAce',
+    title: 'InterviewAce',
+    description: 'Developed an interview prep portal with AI-generated practice questions, dynamic scheduling for DSA, HR, and system design modules, and integrated mock interviews with timers and scoring.',
+    technologies: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'WebRTC'],
+    imageUrl: '/projects/interviewAce.png', // Use a generic placeholder image path
+    liveUrl: 'https://interview-ace-rose.vercel.app/',
+    githubUrl: 'https://github.com/sanketshinde3001/Nirmaan-3.0',
+    color: '#F59E0B', // Amber
+  },
+  {
+    id: 'multilingualPhrasebook',
+    title: 'Multilingual Phrasebook',
+    description: 'Digital flipbook app where users can explore and learn phrases in multiple languages.',
+    technologies: ['React', 'TypeScript', 'JavaScript', 'CSS'],
+    imageUrl: '/projects/phrasebook.png',
+    liveUrl: 'https://multilingual-phrasebook.vercel.app/hi',
+    githubUrl: 'https://github.com/Vaishnavi-Raykar/Multilingual-Phrasebook',
+    color: '#10B981', // Emerald
+  },
+  {
+    id: 'alumniConnect',
+    title: 'Alumni Connect',
+    description: 'Platform that bridges alumni and students from technical institutions, enabling mentorship, networking, career opportunities, events, and donations',
+    technologies: ['Next.js', 'Node.js', 'MondoDB','ShadCN', 'TailwindCSS'],
+    imageUrl: '/projects/alumni.png',
+    liveUrl: 'https://alum-bond.vercel.app/',
+    githubUrl: 'https://github.com/prathamesh424/AlumniAssciation',
+    color: '#3B82F6', // Blue
   }
 ];
 
@@ -181,10 +212,14 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 // --- Main Projects Section Component ---
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false); // State to control visibility (show first 3 or all)
   const { ref, inView } = useInView({
-    triggerOnce: false, // Keep false to re-animate if scrolled out and back in? Or true for once.
-    threshold: 0.1, // Trigger when 10% of the section is visible
-   });
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  // Determine which projects to display based on the state
+  const projectsToShow = showAll ? projects : projects.slice(0, 3);
 
   return (
     // Added pt-24 to push content below the fixed navbar
@@ -206,14 +241,26 @@ const Projects = () => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           // Stagger children animation - removed as handled by whileInView on card
-          // variants={containerVariants}
+          // variants={containerVariants} // Staggering handled by individual cards
         >
-          {projects.map((project, index) => (
-             // We'll apply entrance animation directly on the card using whileInView
-             // No need for a separate motion wrapper here if card handles its own animation
+          {projectsToShow.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </motion.div>
+
+        {/* Show More Button */}
+        {!showAll && projects.length > 3 && ( // Only show button if not all are shown and there are more than 3 projects
+          <div className="text-center mt-10 sm:mt-12 md:mt-16">
+            <motion.button
+              onClick={() => setShowAll(true)} // Set state to show all projects
+              className="px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:-translate-y-1"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Show More Projects
+            </motion.button>
+          </div>
+        )}
       </div>
     </section>
   );
